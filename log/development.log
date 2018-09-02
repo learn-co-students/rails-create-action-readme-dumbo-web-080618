@@ -40,3 +40,104 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2018-09-01 20:17:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/railties-4.2.10/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 35ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-09-01 20:17:41 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 582ms (Views: 571.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts" for ::1 at 2018-09-01 20:17:46 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mOgV8/OWci8v+l9I3s+HSkpb0a9T1c01AUMLLvlZyJlyrBkanimgVx/v//O0BocUVaMXf09TpdNpLbUjiLL9+g==", "title"=>"sf", "description"=>"asfsa", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "sf"], ["description", "asfsa"], ["created_at", "2018-09-02 00:17:46.117142"], ["updated_at", "2018-09-02 00:17:46.117142"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 2.4ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  app/controllers/posts_controller.rb:19:in `create'
+
+
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (140.1ms)
+
+
+Started POST "/posts" for ::1 at 2018-09-01 20:18:11 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mOgV8/OWci8v+l9I3s+HSkpb0a9T1c01AUMLLvlZyJlyrBkanimgVx/v//O0BocUVaMXf09TpdNpLbUjiLL9+g==", "title"=>"sf", "description"=>"asfsa", "commit"=>"Submit Post"}
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.9ms)
+
+NameError (undefined local variable or method `post' for #<PostsController:0x007fec549d86e8>
+Did you mean?  @post):
+  app/controllers/posts_controller.rb:16:in `create'
+
+
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.3ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (208.8ms)
+
+
+Started POST "/posts" for ::1 at 2018-09-01 20:18:57 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mOgV8/OWci8v+l9I3s+HSkpb0a9T1c01AUMLLvlZyJlyrBkanimgVx/v//O0BocUVaMXf09TpdNpLbUjiLL9+g==", "title"=>"sf", "description"=>"asfsa", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "sf"], ["description", "asfsa"], ["created_at", "2018-09-02 00:18:57.573725"], ["updated_at", "2018-09-02 00:18:57.573725"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 21ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-09-01 20:18:57 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 58ms (Views: 43.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for ::1 at 2018-09-01 20:19:12 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mOgV8/OWci8v+l9I3s+HSkpb0a9T1c01AUMLLvlZyJlyrBkanimgVx/v//O0BocUVaMXf09TpdNpLbUjiLL9+g==", "title"=>"sfmnljn", "description"=>"asfsakn.kn", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "sfmnljn"], ["description", "asfsakn.kn"], ["created_at", "2018-09-02 00:19:12.151081"], ["updated_at", "2018-09-02 00:19:12.151081"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 5.4ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts"} missing required keys: [:id]):
+  app/controllers/posts_controller.rb:19:in `create'
+
+
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/EbenWoodward/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-09-01 20:20:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mOgV8/OWci8v+l9I3s+HSkpb0a9T1c01AUMLLvlZyJlyrBkanimgVx/v//O0BocUVaMXf09TpdNpLbUjiLL9+g==", "title"=>"sfmnljn", "description"=>"asfsakn.kn", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "sfmnljn"], ["description", "asfsakn.kn"], ["created_at", "2018-09-02 00:20:53.654985"], ["updated_at", "2018-09-02 00:20:53.654985"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 27ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/posts" for ::1 at 2018-09-01 20:20:53 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 468ms (Views: 467.1ms | ActiveRecord: 0.2ms)
